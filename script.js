@@ -5,6 +5,7 @@ document.getElementById('caaForm').addEventListener('submit', async function (e)
   resultDiv.innerHTML = '<p>Checking CAA records...</p>';
 
   try {
+    // 1. DNS CAA Record Check
     const response = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=CAA`);
     const data = await response.json();
 
@@ -23,10 +24,10 @@ document.getElementById('caaForm').addEventListener('submit', async function (e)
 
     resultDiv.innerHTML = html;
 
-    // Also send to backend
-    await fetch('/submit', {
+    // 2. Submit to backend
+    await fetch('https://your-backend-url.onrender.com/submit', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ domain })
     });
 
