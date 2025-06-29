@@ -11,22 +11,10 @@ document.getElementById('caaForm').addEventListener('submit', async function (e)
     let html = `<h3>Result for ${domain}:</h3>`;
 
     if (!data.Answer || !Array.isArray(data.Answer)) {
-      html += `
-        <p style="color: #ff0000; font-weight: bold; text-shadow: 0 0 5px #ff0000;">
-          ❌ No CAA records found
-        </p>
-        <p style="color: #ff0000; font-weight: bold; text-shadow: 0 0 5px #ff0000;">
-          🚨 Vulnerability Found
-        </p>`;
+      html += `<p class="vuln">VULNERABILITY FOUND</p>
+               <p style="color: #c62828;">No CAA records found.</p>`;
     } else {
-      html += `
-        <p style="color: #00ff00; font-weight: bold; text-shadow: 0 0 5px #00ff00;">
-          ✅ CAA records found
-        </p>
-        <p style="color: #ff0000; font-weight: bold; text-shadow: 0 0 5px #ff0000;">
-          ❌ Vulnerability Not Found
-        </p>
-        <ul>`;
+      html += `<p class="safe">✅ CAA records found</p><ul>`;
       data.Answer.forEach(record => {
         html += `<li>${record.data}</li>`;
       });
@@ -35,7 +23,14 @@ document.getElementById('caaForm').addEventListener('submit', async function (e)
 
     resultDiv.innerHTML = html;
 
+    // Also send to backend
+    await fetch('/submit', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ domain })
+    });
+
   } catch (err) {
-    resultDiv.innerHTML = `<p style="color: #ff4d4f;">Error fetching CAA records: ${err.message}</p>`;
+    resultDiv.innerHTML = `<p style="color: red;">Error: ${err.message}</p>`;
   }
 });

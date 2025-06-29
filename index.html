@@ -2,34 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CAA Record Checker</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+  <div class="container">
     <h1>CAA Record Checker</h1>
-  </header>
-
-  <div class="hero">
-    <p>Enter a domain to check for DNS CAA records. Perfect for users who need to verify certificate authority restrictions.</p>
-    <div class="card">
-      <form id="caaForm">
-        <input type="text" id="domain" placeholder="example.com" required />
-        <button type="submit">Check</button>
-      </form>
-      <div id="results"></div>
-      <div class="examples">
-      </div>
-    </div>
+    <p>Check for DNS CAA records to detect possible certificate vulnerabilities.</p>
+    <form id="caaForm">
+      <input type="text" id="domain" placeholder="Enter domain (e.g., example.com)" required />
+      <button type="submit">Check</button>
+    </form>
+    <div id="results"></div>
   </div>
-
-  <footer>
-
-    <p>&copy; 2025 CAA Checker. Built for the community.</p>
-  </footer>
-
   <script src="script.js"></script>
 </body>
 </html>
