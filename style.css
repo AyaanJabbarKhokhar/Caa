@@ -1,89 +1,73 @@
-
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  color: #222;
+  font-family: 'Segoe UI', sans-serif;
+  background: #ffffff;
+  color: #000000;
 }
-
 header {
-  padding: 40px 20px 10px;
+  padding: 40px 20px 20px;
   text-align: center;
-  background-color: #f0f4f8;
-  border-bottom: 1px solid #ccc;
+  background: #007BFF;
+  color: white;
 }
-
 header h1 {
-  font-size: 2.5rem;
-  color: #0066cc;
+  margin: 0;
+  font-size: 2rem;
 }
-
 .hero {
   text-align: center;
-  padding: 30px 20px 0;
+  padding: 40px 20px 0;
 }
-
-.hero p {
-  max-width: 700px;
-  margin: 0 auto 30px;
-  font-size: 1rem;
-  color: #333;
-}
-
 .card {
-  background: #ffffff;
+  background: #f8f9fa;
   max-width: 600px;
   margin: 0 auto;
   padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-
 form {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
-
 input[type="text"] {
   flex: 1;
   padding: 14px;
   font-size: 1rem;
-  border-radius: 6px;
   border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  color: #222;
+  border-radius: 8px;
 }
-
-input[type="text"]:focus {
-  outline: none;
-  border-color: #0066cc;
-}
-
 button {
   padding: 14px 28px;
   font-size: 1rem;
   border: none;
-  border-radius: 6px;
-  background-color: #0066cc;
-  color: #fff;
-  font-weight: bold;
+  border-radius: 8px;
+  background: #007BFF;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
-
 button:hover {
-  background-color: #0055aa;
+  background: #0056b3;
 }
-
 #results {
-  background-color: #f4faff;
-  padding: 20px;
-  border-left: 5px solid #0066cc;
-  border-radius: 6px;
-  font-size: 1rem;
-  color: #222;
   margin-top: 20px;
+  padding: 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+.vuln {
+  background-color: #ffe6e6;
+  border-left: 5px solid #ff4d4d;
+  color: #b30000;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.safe {
+  background-color: #e6ffe6;
+  border-left: 5px solid #33cc33;
+  color: #006600;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
