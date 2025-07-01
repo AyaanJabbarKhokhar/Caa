@@ -1,4 +1,3 @@
-
 document.getElementById('caaForm').addEventListener('submit', async function (e) {
   e.preventDefault();
   const domain = document.getElementById('domain').value;
@@ -6,20 +5,20 @@ document.getElementById('caaForm').addEventListener('submit', async function (e)
   resultDiv.innerHTML = '<p>Checking CAA records...</p>';
 
   try {
-    const response = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=CAA`);
+    const response = await fetch(`https://dns.google/resolve?name=${domain}&type=CAA`);
     const data = await response.json();
 
     if (!data.Answer) {
-      resultDiv.innerHTML = '<p style="color: red; font-size: 1.2rem;"><strong>No CAA records found.</strong></p>';
+      resultDiv.innerHTML = `<div class="vuln">Vulnerability Found<br>No CAA records found.</div>`;
     } else {
-      let html = '<p style="color: green; font-size: 1.2rem;"><strong>CAA records found:</strong></p><ul>';
+      let html = `<div class="safe">Vulnerability Not Found<br>CAA records found:</div><ul>`;
       data.Answer.forEach(record => {
-        html += '<li>' + record.data + '</li>';
+        html += `<li>${record.data}</li>`;
       });
       html += '</ul>';
       resultDiv.innerHTML = html;
     }
   } catch (err) {
-    resultDiv.innerHTML = '<p style="color: red;">Error: ' + err.message + '</p>';
+    resultDiv.innerHTML = `<div class="vuln">Error: ${err.message}</div>`;
   }
 });
