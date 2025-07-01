@@ -1,71 +1,99 @@
-css:
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #eef2f3, #8e9eab);
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding-top: 80px;
-  margin: 0;
   height: 100vh;
+  flex-direction: column;
 }
 
 h1 {
-  font-size: 32px;
-  color: #333;
+  font-size: 2.5rem;
+  color: #1d3d6f;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 2px #ccc;
 }
 
-form {
-  background: white;
-  padding: 30px 25px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  text-align: center;
-}
-
-input[type="text"] {
-  padding: 12px 15px;
-  width: 300px;
-  font-size: 16px;
-  border: 2px solid #ccc;
+#caaForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
   border-radius: 8px;
-  margin-bottom: 15px;
-  outline: none;
-  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
 }
 
-input[type="text"]:focus {
-  border-color: #4e8ef7;
+#caaForm input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #1d3d6f;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333;
 }
 
-button {
-  padding: 12px 25px;
-  font-size: 16px;
-  background-color: #4e8ef7;
+#caaForm button {
+  width: 100%;
+  padding: 10px;
+  background-color: #1d3d6f;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #336ed3;
+#caaForm button:hover {
+  background-color: #295d8e;
 }
 
 #result {
-  margin-top: 25px;
-  font-weight: normal;
-  font-size: 16px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 500px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  color: #222;
-  word-wrap: break-word;
+  margin-top: 20px;
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  width: 300px;
+  background-color: #fff;
+  border: 2px solid #e0e0e0;
 }
+
+#result strong {
+  color: #1d3d6f;
+}
+
+code {
+  font-family: monospace, sans-serif;
+  background-color: #f7f7f7;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #d32f2f;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  #caaForm {
+    width: 90%;
+  }
+
+  #result {
+    width: 90%;
+  }
+}
+
